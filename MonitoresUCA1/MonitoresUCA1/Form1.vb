@@ -60,4 +60,16 @@
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+    Private Sub btBorrar_Click(sender As Object, e As EventArgs) Handles btBorrar.Click
+        Dim vistaFilaActual As DataRowView
+        Dim NL As String = Environment.NewLine
+
+        If (MessageBox.Show("Desea borrar este registro?" & NL, "Buscar",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes) Then
+            vistaFilaActual = CiudadBindingSource.Current
+            vistaFilaActual.Row.Delete()
+            MostrarPosicion()
+        End If
+    End Sub
 End Class

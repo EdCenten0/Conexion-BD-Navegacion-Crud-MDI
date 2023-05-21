@@ -137,6 +137,7 @@ Partial Class Form1
         'ctId
         '
         Me.ctId.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CiudadBindingSource, "id", True))
+        Me.ctId.Enabled = False
         Me.ctId.Location = New System.Drawing.Point(187, 143)
         Me.ctId.Name = "ctId"
         Me.ctId.Size = New System.Drawing.Size(179, 22)
