@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class Form1
+Public Class FormHijo
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btGuardar.Click
         Dim cmd As New SqlCommand()
         If Me.Validate Then
