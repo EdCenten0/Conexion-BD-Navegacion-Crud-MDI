@@ -18,8 +18,7 @@
             currentForm.Close()
         End If
         currentForm = PantallaPresentacion1
-        currentForm.Width = 100
-        currentForm.Height = 100
+        currentForm.MaximumSize = New Size(400, 400)
         currentForm.TopLevel = False
         currentForm.FormBorderStyle = FormBorderStyle.None
         currentForm.Dock = DockStyle.Fill
