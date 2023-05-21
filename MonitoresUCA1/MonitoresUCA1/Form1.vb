@@ -40,4 +40,24 @@
         CiudadBindingSource.Position = CiudadBindingSource.Count - 1
         MostrarPosicion()
     End Sub
+
+    Private Sub btAñadir_Click(sender As Object, e As EventArgs) Handles btAñadir.Click
+        Dim miTabla As DataTable = DsCiudades.Ciudad
+        Dim cFilas As DataRowCollection = miTabla.Rows
+        Dim nuevaFila As DataRow
+        Try
+            nuevaFila = miTabla.NewRow()
+            nuevaFila(0) = CiudadBindingSource.Count + 1
+            nuevaFila(1) = ctNombre.Text
+            nuevaFila(2) = ctObservaciones.Text
+            nuevaFila(3) = ctEstado.Text
+            cFilas.Add(nuevaFila)
+            btUltimo.PerformClick()
+            MostrarPosicion()
+            ctNombre.Focus()
+
+        Catch ex As System.Data.ConstraintException
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 End Class
