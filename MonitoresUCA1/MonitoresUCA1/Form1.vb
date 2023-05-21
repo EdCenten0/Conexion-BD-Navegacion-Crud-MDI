@@ -1,12 +1,26 @@
-﻿Public Class Form1
+﻿Imports System.Data.SqlClient
+
+Public Class Form1
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btGuardar.Click
+        Dim cmd As New SqlCommand()
+        If Me.Validate Then
+            Try
+                If (DsCiudades.HasChanges()) Then
+                    Me.CiudadBindingSource.EndEdit()
+                    Me.CiudadTableAdapter.Update(Me.DsCiudades.Ciudad)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Error: " + ex.Message)
+            End Try
+        Else
+            MessageBox.Show(Me, "Errores de validacion.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
 
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'DsCiudades.Ciudad' Puede moverla o quitarla según sea necesario.
         Me.CiudadTableAdapter.Fill(Me.DsCiudades.Ciudad)
-
     End Sub
 
     Public Sub MostrarPosicion()
