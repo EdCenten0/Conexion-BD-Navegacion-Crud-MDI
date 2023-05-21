@@ -8,6 +8,7 @@ Public Class Form1
                 If (DsCiudades.HasChanges()) Then
                     Me.CiudadBindingSource.EndEdit()
                     Me.CiudadTableAdapter.Update(Me.DsCiudades.Ciudad)
+                    MessageBox.Show("Base de datos actualizada")
                 End If
             Catch ex As Exception
                 MessageBox.Show("Error: " + ex.Message)
@@ -85,5 +86,28 @@ Public Class Form1
             vistaFilaActual.Row.Delete()
             MostrarPosicion()
         End If
+    End Sub
+
+    Private Sub btBuscar_Click(sender As Object, e As EventArgs) Handles btBuscar.Click
+        Dim miTabla As DataTable = DsCiudades.Ciudad
+        Dim cFilas As DataRowCollection = miTabla.Rows
+        Dim filaBuscada() As DataRow
+        Dim NL As String = Environment.NewLine
+        Dim criterio As String = "Nombre Like '*" & ctBuscar.Text & "*'"
+
+        filaBuscada = miTabla.Select(criterio)
+        If (filaBuscada.GetUpperBound(0) = 1) Then
+            MessageBox.Show("No se encontraron registros coincidentes", "Buscar")
+            Exit Sub
+        End If
+
+        Dim i, j As Integer
+        For i = 0 To filaBuscada.GetUpperBound(0)
+            If (MessageBox.Show("Este es el nombre buscado?" & NL & filaBuscada(i)(0) & Name, "Buscar", MessageBoxButtons.YesNo) = DialogResult.Yes) Then
+                CiudadBindingSource.Position = cFilas.IndexOf(filaBuscada(i))
+                MostrarPosicion()
+                Exit For
+            End If
+        Next i
     End Sub
 End Class
