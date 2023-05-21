@@ -22,6 +22,7 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -43,7 +44,12 @@ Partial Class Form1
         Me.btSiguiente = New System.Windows.Forms.Button()
         Me.btUltimo = New System.Windows.Forms.Button()
         Me.etPosicion = New System.Windows.Forms.Label()
+        Me.DsCiudades = New MonitoresUCA1.dsCiudades()
+        Me.CiudadBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CiudadTableAdapter = New MonitoresUCA1.dsCiudadesTableAdapters.CiudadTableAdapter()
         Me.Panel1.SuspendLayout()
+        CType(Me.DsCiudades, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CiudadBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -130,6 +136,7 @@ Partial Class Form1
         '
         'ctId
         '
+        Me.ctId.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CiudadBindingSource, "id", True))
         Me.ctId.Location = New System.Drawing.Point(187, 143)
         Me.ctId.Name = "ctId"
         Me.ctId.Size = New System.Drawing.Size(179, 22)
@@ -137,6 +144,7 @@ Partial Class Form1
         '
         'ctNombre
         '
+        Me.ctNombre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CiudadBindingSource, "nombre", True))
         Me.ctNombre.Location = New System.Drawing.Point(187, 198)
         Me.ctNombre.Name = "ctNombre"
         Me.ctNombre.Size = New System.Drawing.Size(179, 22)
@@ -144,6 +152,7 @@ Partial Class Form1
         '
         'ctEstado
         '
+        Me.ctEstado.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CiudadBindingSource, "estado", True))
         Me.ctEstado.Location = New System.Drawing.Point(187, 257)
         Me.ctEstado.Name = "ctEstado"
         Me.ctEstado.Size = New System.Drawing.Size(179, 22)
@@ -151,6 +160,7 @@ Partial Class Form1
         '
         'ctObservaciones
         '
+        Me.ctObservaciones.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CiudadBindingSource, "observaciones", True))
         Me.ctObservaciones.Location = New System.Drawing.Point(186, 309)
         Me.ctObservaciones.Multiline = True
         Me.ctObservaciones.Name = "ctObservaciones"
@@ -266,6 +276,20 @@ Partial Class Form1
         Me.etPosicion.TabIndex = 19
         Me.etPosicion.Text = "No de Registros"
         '
+        'DsCiudades
+        '
+        Me.DsCiudades.DataSetName = "dsCiudades"
+        Me.DsCiudades.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CiudadBindingSource
+        '
+        Me.CiudadBindingSource.DataMember = "Ciudad"
+        Me.CiudadBindingSource.DataSource = Me.DsCiudades
+        '
+        'CiudadTableAdapter
+        '
+        Me.CiudadTableAdapter.ClearBeforeFill = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -276,6 +300,8 @@ Partial Class Form1
         Me.Text = "Tabla de ciudades"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.DsCiudades, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CiudadBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -301,4 +327,7 @@ Partial Class Form1
     Friend WithEvents btSiguiente As Button
     Friend WithEvents btAnterior As Button
     Friend WithEvents btPrimero As Button
+    Friend WithEvents DsCiudades As dsCiudades
+    Friend WithEvents CiudadBindingSource As BindingSource
+    Friend WithEvents CiudadTableAdapter As dsCiudadesTableAdapters.CiudadTableAdapter
 End Class
