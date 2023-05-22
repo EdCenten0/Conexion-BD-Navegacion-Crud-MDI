@@ -43,7 +43,8 @@ Partial Class FormPadre
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuArchivo, Me.menuFormularios, Me.menuReportes})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 28)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(600, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -51,79 +52,80 @@ Partial Class FormPadre
         '
         Me.menuArchivo.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.archivoCerrar})
         Me.menuArchivo.Name = "menuArchivo"
-        Me.menuArchivo.Size = New System.Drawing.Size(73, 24)
+        Me.menuArchivo.Size = New System.Drawing.Size(60, 20)
         Me.menuArchivo.Text = "Archivo"
         '
         'archivoCerrar
         '
         Me.archivoCerrar.Name = "archivoCerrar"
-        Me.archivoCerrar.Size = New System.Drawing.Size(224, 26)
+        Me.archivoCerrar.Size = New System.Drawing.Size(106, 22)
         Me.archivoCerrar.Text = "Cerrar"
         '
         'menuFormularios
         '
         Me.menuFormularios.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.opFormularioCRUD, Me.opFormularioA, Me.opFormularioB, Me.opFormularioC})
         Me.menuFormularios.Name = "menuFormularios"
-        Me.menuFormularios.Size = New System.Drawing.Size(101, 24)
+        Me.menuFormularios.Size = New System.Drawing.Size(82, 20)
         Me.menuFormularios.Text = "Formularios"
         '
         'opFormularioCRUD
         '
         Me.opFormularioCRUD.Name = "opFormularioCRUD"
-        Me.opFormularioCRUD.Size = New System.Drawing.Size(224, 26)
+        Me.opFormularioCRUD.Size = New System.Drawing.Size(166, 22)
         Me.opFormularioCRUD.Text = "Formulario CRUD"
         '
         'opFormularioA
         '
         Me.opFormularioA.Name = "opFormularioA"
-        Me.opFormularioA.Size = New System.Drawing.Size(224, 26)
+        Me.opFormularioA.Size = New System.Drawing.Size(166, 22)
         Me.opFormularioA.Text = "Formulario A"
         '
         'opFormularioB
         '
         Me.opFormularioB.Name = "opFormularioB"
-        Me.opFormularioB.Size = New System.Drawing.Size(224, 26)
+        Me.opFormularioB.Size = New System.Drawing.Size(166, 22)
         Me.opFormularioB.Text = "Formulario B"
         '
         'opFormularioC
         '
         Me.opFormularioC.Name = "opFormularioC"
-        Me.opFormularioC.Size = New System.Drawing.Size(224, 26)
+        Me.opFormularioC.Size = New System.Drawing.Size(166, 22)
         Me.opFormularioC.Text = "Formulario C"
         '
         'menuReportes
         '
         Me.menuReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.opReportes1, Me.opReportes2, Me.opReportes3})
         Me.menuReportes.Name = "menuReportes"
-        Me.menuReportes.Size = New System.Drawing.Size(82, 24)
+        Me.menuReportes.Size = New System.Drawing.Size(65, 20)
         Me.menuReportes.Text = "Reportes"
         '
         'opReportes1
         '
         Me.opReportes1.Name = "opReportes1"
-        Me.opReportes1.Size = New System.Drawing.Size(224, 26)
+        Me.opReportes1.Size = New System.Drawing.Size(180, 22)
         Me.opReportes1.Text = "Reporte 1"
         '
         'opReportes2
         '
         Me.opReportes2.Name = "opReportes2"
-        Me.opReportes2.Size = New System.Drawing.Size(224, 26)
+        Me.opReportes2.Size = New System.Drawing.Size(180, 22)
         Me.opReportes2.Text = "Reporte 2"
         '
         'opReportes3
         '
         Me.opReportes3.Name = "opReportes3"
-        Me.opReportes3.Size = New System.Drawing.Size(224, 26)
+        Me.opReportes3.Size = New System.Drawing.Size(180, 22)
         Me.opReportes3.Text = "Reporte 3"
         '
         'FormPadre
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(600, 366)
         Me.Controls.Add(Me.MenuStrip1)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "FormPadre"
         Me.Text = "FormPadre"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

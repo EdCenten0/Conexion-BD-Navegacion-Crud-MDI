@@ -28,5 +28,7 @@
         currentForm.Show()
     End Sub
 
-
+    Private Sub opReportes1_Click(sender As Object, e As EventArgs) Handles opReportes1.Click
+        Frm_Reporte.Show()
+    End Sub
 End Class
